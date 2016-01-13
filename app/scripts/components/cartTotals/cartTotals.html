@@ -1,0 +1,45 @@
+<section class="s-cart-totals" ng-show="cartData.length">
+    <div class="totals-table">
+        <div class="totals-table-row">
+            <div class="totals-table-col">
+              SUBTOTAL
+            </div>
+            <div class="totals-table-col totals-table-col--price">
+              <sup>$</sup>{{cartSubTotal() | number:2}}
+            </div>
+        </div>
+        <div class="totals-table-row" ng-if="promo">
+            <div class="totals-table-col">
+              PROMOTION CODE <strong>{{promo.code}}</strong> APPLIED
+            </div>
+            <div class="totals-table-col totals-table-col--price">
+              - <sup>$</sup>{{promo.price | number:2}}
+            </div>
+        </div>
+        <div class="totals-table-row">
+            <div class="totals-table-col">
+              ESTIMATED SHIPPING*
+              <span ng-if="cartShippingTotal() === 0">You spent $50, so you qualify for free shipping*</span>
+            </div>
+            <div ng-if="cartShippingTotal() === 0" class="totals-table-col totals-table-col--price">
+              FREE
+            </div>
+            <div ng-if="!(cartShippingTotal() === 0)" class="totals-table-col totals-table-col--price">
+              <sup>$</sup>5.00
+            </div>
+        </div>
+        <div class="totals-table-row totals-table-row--spacer">
+           <div class="totals-table-col"></div>
+           <div class="totals-table-col"></div>
+        </div>
+        <div class="totals-table-row totals-table-row--total">
+            <div class="totals-table-col">
+              ESTIMATED TOTAL
+              <span>Tax will be applied during checkout</span>
+            </div>
+            <div class="totals-table-col totals-table-col--price">
+              <sup>$</sup>{{cartEstimatedTotal() | number:2}}
+            </div>
+        </div>
+    </div>
+</section>

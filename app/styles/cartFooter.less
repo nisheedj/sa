@@ -1,0 +1,91 @@
+.s-cart {
+    &-footer {
+        &__checkout {
+            display: block;
+            width: 221px;
+            height: 40px;
+            background-color: #076cbe;
+            text-align: center;
+            margin: auto;
+            line-height: 40px;
+            font-size: 12px;
+            &,
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                color: #FFFFFF;
+            }
+            @media screen and (min-width:776px) {
+                float: right;
+                width: 118px;
+                margin: 24px 0 13px;
+            }
+        }
+        &__continue {
+            font-size: 12px;
+            text-align: center;
+            > a {
+                display: block;
+                color: @font-color;
+                text-decoration: underline;
+                height: 40px;
+                background-color: transparent;
+                line-height: 40px;
+                margin: 10px auto;
+            }
+            @media screen and (min-width:776px) {
+                float: right;
+                > a {
+                    margin: 24px 22px 13px 0;
+                }
+            }
+        }
+
+        &__secure-text{
+          letter-spacing: 1px;
+          color: @font-color-grey;
+          padding: 0 65px;
+          text-align: center;
+          > span{
+            display: block;
+          }
+          > img{
+            margin-top: 5px;
+          }
+
+          @media screen and (min-width:776px){
+            clear: both;
+            .clearfix;
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: 38px;
+            > span{
+              float: right;
+              line-height: 24px;
+            }
+            > img{
+              float: right;
+              margin-top: 0;
+              margin-right: 10px;
+            }
+            > hr{
+              display: none;
+            }
+          }
+        }
+        &__bottom-text{
+          letter-spacing: 1px;
+          color: @font-color;
+          padding: 0 65px;
+          text-align: left;
+          margin-bottom: 13px;
+          > a{
+            text-decoration: underline;
+            color: @font-color;
+          }
+          @media screen and (min-width:776px) {
+              display: none;
+          }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+.s-cart {
+    &-coupons {
+        padding: 23px 35px;
+        border-top: 5px solid @border-color;
+        border-bottom: 1px solid @border-color;
+        color: @font-color;
+        label {
+            text-align: center;
+            display: block;
+            font-size: 12px;
+        }
+        input[type="text"]{
+          margin-right:8px;
+          width: 139px;
+          height: 30px;
+          border:1px solid @border-color;
+          font-size: 12px;
+          padding-left: 4px;
+          padding-right: 4px;
+          color: @font-color;
+        }
+        input[type="submit"]{
+          width: 75px;
+          height: 30px;
+          background-color: #FFFFFF;
+          border:1px solid @border-color;
+          font-size: 12px;
+          color: @font-color;
+        }
+        .s-cart-coupons-row{
+          margin-top: 10px;
+          text-align: center;
+        }
+
+        @media screen and (min-width:776px) {
+            padding-left: 0;
+            padding-right: 0;
+            border-top: none;
+            padding-top: 64px;
+            padding-bottom: 30px;
+            border-bottom: 5px solid @border-color;
+            .clearfix;
+            
+            label{
+              float: left;
+              text-align: left;
+            }
+            .s-cart-coupons-row{
+              float: right;
+              margin: 0;
+            }
+        }
+    }
+}

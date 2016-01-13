@@ -1,0 +1,38 @@
+.s-cart {
+    width: 100%;
+    @media screen and (min-width: 776px) {
+        width: 775px;
+        margin: 0 auto;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    &-right {
+        width: 100%;
+        @media screen and (min-width: 776px) {
+            width: 465px;
+            float: right;
+        }
+    }
+    &-left {
+        display: none;
+        font-size: 12px;
+        letter-spacing: 1px;
+        a {
+            &,
+            &:hover,
+            &:focus {
+                color: @font-color;
+                text-decoration: underline;
+            }
+        }
+        @media screen and (min-width: 776px) {
+            display: block;
+            float: left;
+            padding-top: 64px;
+            width: (775px - (2 * 16px) - 465px);
+        }
+    }
+    &-update-form {
+        .clearfix;
+    }
+}

@@ -1,0 +1,21 @@
+@font-family-sans-serif: 'Open Sans',sans-serif;
+@font-color: #5c5c5e;
+@font-color-grey: #aaaaaa;
+@border-color: #dddbdc;
+@border-radius-base: 0;
+@border-radius-large: 0;
+@border-radius-small: 0;
+.hide-desktop {
+    @media screen and (min-width: 776px) {
+        display: none !important;
+    }
+}
+
+.clearfix {
+    &:before,
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+}

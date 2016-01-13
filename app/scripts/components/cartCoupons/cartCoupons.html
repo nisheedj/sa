@@ -1,0 +1,7 @@
+<section class="s-cart-coupons" ng-show="cartData.length">
+  <label for="s-cart-promo-code">ENTER PROMOTION CODE<br>OR GIFT CARD</label>
+  <div class="s-cart-coupons-row">
+    <input id="s-cart-promo-code" type="text" ng-model="couponCode">
+    <input type="submit" ng-click="applyCoupon($event)" class="btn btn-default" value="APPLY"/>
+  </div>
+</section>

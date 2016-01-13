@@ -1,0 +1,33 @@
+.s-cart {
+    &-header {
+        padding: 10px 15px;
+        color: @font-color;
+        height: 50px;
+        position: relative;
+        border-bottom: 6px solid @border-color;
+        &__title {
+            margin: 0;
+            font-size: 20px;
+        }
+        &__count {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 16px;
+        }
+        @media screen and (min-width:776px) {
+            height: 145px;
+            border-bottom-width: 1px;
+            &__title {
+                font-size: 50px;
+                font-weight: 300;
+            }
+            &__count {
+                top: 158px;
+                left: 5px;
+                right: auto;
+                font-size: 14px;
+            }
+        }
+    }
+}

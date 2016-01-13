@@ -1,0 +1,31 @@
+<div class="s-cart">
+    <cart-header></cart-header>
+    <main class="s-cart-items">
+        <form class="s-cart-update-form">
+            <div class="s-cart-item s-cart-item--header">
+                <div class="s-cart-item-row">
+                  <div class="s-cart-item-col s-cart-item-col--img"></div>
+                  <div class="s-cart-item-col s-cart-item-col--detail"></div>
+                  <div class="s-cart-item-col s-cart-item-col--size">SIZE</div>
+                  <div class="s-cart-item-col s-cart-item-col--qty">QTY</div>
+                  <div class="s-cart-item-col s-cart-item-col--price">PRICE</div>
+                </div>
+            </div>
+            <br>
+            <div class="alert" ng-class="{'alert-danger':cartError,'alert-info':cartLoading}" ng-if="infoText">{{infoText}}</div>
+            <cart-item add-to-wishlist="addToWishlist()" remove-item="removeItem()" cart-item="item" ng-repeat="item in cartData track by item.p_id" index="$index"></cart-item>
+            <div class="s-cart-left">
+                <p><strong>Need help<br>or have questions?</strong></p>
+                <p>Call Customer Service at
+                    <br>1-800-555-555</p>
+                <p><a href="#">Chat with one of<br>our stylists</a></p>
+                <p><a href="#">See return<br>&amp; exchange policies</a></p>
+            </div>
+            <div class="s-cart-right">
+                <cart-coupons></cart-coupons>
+                <cart-totals></cart-totals>
+            </div>
+        </form>
+    </main>
+    <cart-footer cart-items="cartData"></cart-footer>
+</div>

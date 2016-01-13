@@ -1,0 +1,56 @@
+.s-cart {
+    &-totals {
+        padding: 20px 35px;
+        .totals-table {
+            display: table;
+            width: 100%;
+            color: @font-color;
+            &-row {
+                display: table-row;
+                &--total {
+                    .totals-table-col {
+                        border-top: 1px solid @border-color;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        &--price {
+                            font-size: 30px;
+                        }
+                    }
+                }
+                &--spacer {
+                    .totals-table-col {
+                        height: 44px;
+                    }
+                }
+            }
+            &-col {
+                display: table-cell;
+                padding-top: 7px;
+                padding-bottom: 7px;
+                vertical-align: middle;
+                font-size: 12px;
+                > span {
+                    display: block;
+                    font-size: 10px;
+                    letter-spacing: 1px;
+                    color: @font-color-grey;
+                }
+                &--price {
+                    font-size: 21px;
+                    width: 109px;
+                    text-align: right;
+                    sup {
+                        top: -0.6em;
+                        font-size: 58%;
+                    }
+                }
+            }
+        }
+        @media screen and (min-width:776px) {
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            border-bottom: 5px solid @border-color;
+        }
+    }
+}
