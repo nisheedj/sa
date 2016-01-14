@@ -1,0 +1,48 @@
+<div class="modal fade">
+    <div class="modal-dialog s-cart-item-modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-item">
+                    <section class="modal-item-img hide-desktop">
+                        <img ng-src="assets/T{{cartItem.p_id}}.jpg" alt="{{cartItem.p_name}}">
+                    </section>
+                    <section class="modal-item-details">
+                        <div class="modal-item-border"></div>
+                        <div class="modal-item-title">{{cartItem.p_name}}</div>
+                        <div class="modal-item-price"><sup>{{cartItem.c_currency}}</sup>{{cartItem.p_price}}</div>
+                        <form class="modal-item-edit">
+                            <div class="modal-item-palette">
+                                <div class="selected-color">{{getSelectedColor().name}}</div>
+                                <div class="available-colors">
+                                    <ul>
+                                        <li ng-repeat="color in cartItemColors">
+                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="#" ng-click="setSelectedColor(color)" style="background-color:{{color.hexcode}}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-item-row">
+                                <div class="modal-item-size">
+                                    <span class="select-text">SIZE: {{selectedSize.code}}</span>
+                                    <select name="itemSizeSelect" ng-options="size.code for size in cartItem.p_available_options.sizes track by size.code" ng-model="selectedSize"></select>
+                                </div>
+                                <div class="modal-item-qty">
+                                    <span class="select-text">QTY: {{selectedQty}}</span>
+                                    <select name="itemQtySelect" ng-options="qty for qty in validQuantities" ng-model="selectedQty">
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="submit" name="editItemSubmit" value="EDIT">
+                        </form>
+                        <a href="#" title="Product details">See product details</a>
+                    </section>
+                    <section class="modal-item-img hide-mobile">
+                        <img ng-src="assets/T{{cartItem.p_id}}.jpg" alt="{{cartItem.p_name}}">
+                    </section>
+                </div>
+                <button type="button" class="modal-close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -81,6 +81,12 @@ export default ['$templateCache', function($templateCache) {
         });
       };
 
+      $scope.parseQuantity = () => {
+        angular.forEach($scope.cartData,(item) => {
+          item.c_quantity = item.p_quantity;
+        });
+      };
+
       //Retrive the cart on initialize of controller
       //Added delay to mock production delays
       $timeout(() => {
@@ -90,6 +96,7 @@ export default ['$templateCache', function($templateCache) {
             $scope.infoText = errorMsg;
           } else {
             $scope.cartData = response.data.productsInCart;
+            $scope.parseQuantity();
             $scope.infoText = $scope.cartData.length ? false : noItemsMsg;
           }
         }, (response) => {

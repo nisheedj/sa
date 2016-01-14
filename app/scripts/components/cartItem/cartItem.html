@@ -21,7 +21,7 @@
             </div>
             <div class="item-qty">
                 <span>QTY:</span>
-                <input type="number" ng-model="cartItem.p_quantity" min="1" max="10" />
+                <input type="number" ng-model="cartItem.c_quantity" min="0" max="10"/>
             </div>
             <div class="item-price">
                 <span class="item-price__was" ng-if="cartItem.p_originalprice !== cartItem.p_price">
@@ -37,7 +37,7 @@
         </div>
         <div class="s-cart-item-col s-cart-item-col--qty">
             <div class="item-qty">
-                <input type="number" ng-model="cartItem.p_quantity" min="1" max="10" />
+                <input type="number" ng-model="cartItem.c_quantity" min="0" max="10"/>
             </div>
         </div>
         <div class="s-cart-item-col s-cart-item-col--price">
@@ -51,7 +51,7 @@
     </div>
     <div class="s-cart-item-actions">
         <ul>
-            <li><a href="#" title="Edit or update current item" role="button">EDIT</a></li>
+            <li><a href="#" ng-click="editCartItem()" title="Edit or update current item" role="button">EDIT</a></li>
             <li><a href="#" ng-click="removeItem($index)" title="Remove item from cart" role="button"><strong>X</strong> REMOVE</a></li>
             <li><a href="#" ng-click="addToWishlist($index)" title="Save item for later" role="button">SAVE FOR LATER</a></li>
         </ul>

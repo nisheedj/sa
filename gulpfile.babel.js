@@ -50,6 +50,7 @@ gulp.task('build', ['html', 'less'], () => {
 
 gulp.task('superbuild', ['build'], () => {
   return gulp.src([
+      './node_modules/angular-modal-service/dst/angular-modal-service.js',
       './dist/bundle.templates.js',
       './dist/bundle.js'
     ])
