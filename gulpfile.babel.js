@@ -75,3 +75,12 @@ gulp.task('deploy', ['superbuild'], () => {
   gulp.watch("app/**/*.html", ['html-watch']);
   gulp.watch("app/**/*.less", ['less-watch']);
 });
+
+
+gulp.task('server', () => {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
+  });
+});
