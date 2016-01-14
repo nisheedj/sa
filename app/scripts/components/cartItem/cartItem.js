@@ -28,6 +28,8 @@ export default ['$templateCache', 'ModalService', function($templateCache, Modal
       });
 
       $scope.editCartItem = () => {
+        event.preventDefault();
+        event.stopPropagation();
         ModalService.showModal({
           template: $templateCache.get('scripts/components/cartItemModal/cartItemModal.html'),
           controller: "cartItemModalController",
@@ -37,7 +39,11 @@ export default ['$templateCache', 'ModalService', function($templateCache, Modal
         }).then((modal) => {
           modal.element.modal();
           modal.close.then((result) => {
-            $scope.yesNoResult = result ? "You said Yes" : "You said No";
+            if(result !== null){
+              $scope.cartItem.c_quantity = result.selectedQty;
+              $scope.cartItem.p_selected_color = result.selectedColor;
+              $scope.cartItem.p_selected_size = result.selectedSize;
+            }
           });
         });
       };

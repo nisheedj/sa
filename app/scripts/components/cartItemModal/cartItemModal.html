@@ -16,23 +16,27 @@
                                 <div class="available-colors">
                                     <ul>
                                         <li ng-repeat="color in cartItemColors">
-                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="#" ng-click="setSelectedColor(color)" style="background-color:{{color.hexcode}}"></a>
+                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="#" ng-click="setSelectedColor(color)" ng-style="{'background-color':color.hexcode}"></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="modal-item-row">
                                 <div class="modal-item-size">
-                                    <span class="select-text">SIZE: {{selectedSize.code}}</span>
+                                    <div class="select-text-wrapper">
+                                        <span class="select-text">SIZE: {{selectedSize.code}}</span>
+                                    </div>
                                     <select name="itemSizeSelect" ng-options="size.code for size in cartItem.p_available_options.sizes track by size.code" ng-model="selectedSize"></select>
                                 </div>
                                 <div class="modal-item-qty">
-                                    <span class="select-text">QTY: {{selectedQty}}</span>
+                                    <div class="select-text-wrapper">
+                                        <span class="select-text">QTY: {{selectedQty}}</span>
+                                    </div>
                                     <select name="itemQtySelect" ng-options="qty for qty in validQuantities" ng-model="selectedQty">
                                     </select>
                                 </div>
                             </div>
-                            <input type="submit" name="editItemSubmit" value="EDIT">
+                            <input type="submit" ng-click="updateItem()" name="editItemSubmit" value="EDIT">
                         </form>
                         <a href="#" title="Product details">See product details</a>
                     </section>
@@ -40,7 +44,7 @@
                         <img ng-src="assets/T{{cartItem.p_id}}.jpg" alt="{{cartItem.p_name}}">
                     </section>
                 </div>
-                <button type="button" class="modal-close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="modal-close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">
                 </button>
             </div>
         </div>
