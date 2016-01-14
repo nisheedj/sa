@@ -1,0 +1,8 @@
+<div class="select-text-wrapper" ng-click="toggleDropDown()">
+    <span class="select-text">{{label}}: {{labelValue}}</span>
+    <div class="select-dropdow" ng-class="{'open':dropdownOpen}">
+      <ul>
+        <li ng-click="selectItem($event,option)" ng-repeat="option in mainModel" ng-class="{'selected': option[modelProp] === labelValue}">{{option[modelProp]}}</li>
+      </ul>
+    </div>
+</div>

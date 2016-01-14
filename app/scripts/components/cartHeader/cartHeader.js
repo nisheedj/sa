@@ -1,4 +1,4 @@
-export default ['$templateCache', function($templateCache) {
+export default ['$templateCache', ($templateCache) => {
   return {
     restrict: 'E',
     replace: true,

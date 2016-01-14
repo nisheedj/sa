@@ -16,29 +16,26 @@
                                 <div class="available-colors">
                                     <ul>
                                         <li ng-repeat="color in cartItemColors">
-                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="#" ng-click="setSelectedColor(color)" ng-style="{'background-color':color.hexcode}"></a>
+                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="javascipt:void(0);" ng-click="setSelectedColor(color)" ng-style="{'background-color':color.hexcode}"></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="modal-item-row">
                                 <div class="modal-item-size">
-                                    <div class="select-text-wrapper">
-                                        <span class="select-text">SIZE: {{selectedSize.code}}</span>
-                                    </div>
+                                    <cart-select main-model="cartItem.p_available_options.sizes" model-prop="code" label="size" label-value="selectedSize.code" update-model="selectedSize"></cart-select>
                                     <select name="itemSizeSelect" ng-options="size.code for size in cartItem.p_available_options.sizes track by size.code" ng-model="selectedSize"></select>
                                 </div>
                                 <div class="modal-item-qty">
-                                    <div class="select-text-wrapper">
-                                        <span class="select-text">QTY: {{selectedQty}}</span>
-                                    </div>
-                                    <select name="itemQtySelect" ng-options="qty for qty in validQuantities" ng-model="selectedQty">
+                                    <cart-select main-model="validQuantities" model-prop="value" label="qty" label-value="selectedQty.value" update-model="selectedQty"></cart-select>
+
+                                    <select name="itemQtySelect" ng-options="qty.value for qty in validQuantities track by qty.value" ng-model="selectedQty">
                                     </select>
                                 </div>
                             </div>
                             <input type="submit" ng-click="updateItem()" name="editItemSubmit" value="EDIT">
                         </form>
-                        <a href="#" title="Product details">See product details</a>
+                        <a title="Product details">See product details</a>
                     </section>
                     <section class="modal-item-img hide-mobile">
                         <img ng-src="assets/T{{cartItem.p_id}}.jpg" alt="{{cartItem.p_name}}">

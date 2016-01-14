@@ -1,4 +1,4 @@
-export default ['$scope', '$element', 'close', 'cartItem', function($scope, $element, close, cartItem) {
+export default ['$scope', '$element', 'close', 'cartItem', ($scope, $element, close, cartItem) => {
   $scope.cartItem = cartItem;
 
 
@@ -11,9 +11,21 @@ export default ['$scope', '$element', 'close', 'cartItem', function($scope, $ele
     }
   });
 
-  $scope.validQuantities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  $scope.selectedQty = $scope.cartItem.p_quantity;
-  $scope.selectedSize = $scope.cartItem.p_selected_size;
+  $scope.validQuantities = [];
+
+  //Need to put it in a usable format like the sizes
+  for (var i = 0; i < 10; i++) {
+    $scope.validQuantities.push({
+      value: i + 1
+    });
+  };
+
+  $scope.selectedQty = {
+    value: $scope.cartItem.p_quantity
+  };
+  
+  $scope.selectedSize = $scope.cartItem.p_selected_size
+
 
   $scope.getSelectedColor = () => {
     return $scope.selectedColor;
@@ -27,7 +39,7 @@ export default ['$scope', '$element', 'close', 'cartItem', function($scope, $ele
   $scope.isSelectedColor = (color) => {
     return $scope.selectedColor.name === color.name;
   };
-  
+
   $scope.cancel = () => {
     close(null, 500);
   };
@@ -37,7 +49,7 @@ export default ['$scope', '$element', 'close', 'cartItem', function($scope, $ele
     let payload = {
       selectedColor: $scope.selectedColor,
       selectedSize: $scope.selectedSize,
-      selectedQty: $scope.selectedQty
+      selectedQty: $scope.selectedQty.value
     }
     close(payload, 500); // close, but give 500ms for bootstrap to animate
   };
