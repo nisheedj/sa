@@ -27,15 +27,19 @@ export default ['$templateCache', ($templateCache) => {
       }];
 
       //Remove item function
-      $scope.removeItem = (index) => {
+      $scope.removeItem = (e, index) => {
+        e.preventDefault();
+        e.stopPropagation();
         $scope.cartData.splice(index, 1);
         $scope.infoText = $scope.cartData.length ? false : noItemsMsg;
       };
 
       //Add to wishlist
-      $scope.addToWishlist = (index) => {
+      $scope.addToWishlist = (e, index) => {
+        e.preventDefault();
+        e.stopPropagation();
         $scope.wishlist.push(angular.copy($scope.cartData[index]));
-        $scope.removeItem(index);
+        $scope.removeItem(e, index);
         console.info('Wishlist-->', $scope.wishlist);
       };
 
@@ -81,8 +85,9 @@ export default ['$templateCache', ($templateCache) => {
         });
       };
 
+      //Prevent manipulation of original quantity
       $scope.parseQuantity = () => {
-        angular.forEach($scope.cartData,(item) => {
+        angular.forEach($scope.cartData, (item) => {
           item.c_quantity = item.p_quantity;
         });
       };

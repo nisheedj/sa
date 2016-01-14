@@ -23,7 +23,7 @@ export default ['$scope', '$element', 'close', 'cartItem', ($scope, $element, cl
   $scope.selectedQty = {
     value: $scope.cartItem.p_quantity
   };
-  
+
   $scope.selectedSize = $scope.cartItem.p_selected_size
 
 
@@ -31,7 +31,9 @@ export default ['$scope', '$element', 'close', 'cartItem', ($scope, $element, cl
     return $scope.selectedColor;
   };
 
-  $scope.setSelectedColor = (color) => {
+  $scope.setSelectedColor = (e,color) => {
+    e.preventDefault();
+    e.stopPropagation();
     $scope.selectedColor = color;
     return;
   };

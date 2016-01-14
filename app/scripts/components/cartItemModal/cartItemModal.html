@@ -16,7 +16,7 @@
                                 <div class="available-colors">
                                     <ul>
                                         <li ng-repeat="color in cartItemColors">
-                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="javascipt:void(0);" ng-click="setSelectedColor(color)" ng-style="{'background-color':color.hexcode}"></a>
+                                            <a title="{{color.name}}" ng-class="{'selected': isSelectedColor(color)}" href="#" ng-click="setSelectedColor($event,color)" ng-style="{'background-color':color.hexcode}"></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -35,7 +35,7 @@
                             </div>
                             <input type="submit" ng-click="updateItem()" name="editItemSubmit" value="EDIT">
                         </form>
-                        <a title="Product details">See product details</a>
+                        <a href="#" title="Product details">See product details</a>
                     </section>
                     <section class="modal-item-img hide-mobile">
                         <img ng-src="assets/T{{cartItem.p_id}}.jpg" alt="{{cartItem.p_name}}">

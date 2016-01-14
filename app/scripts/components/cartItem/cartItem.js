@@ -27,9 +27,9 @@ export default ['$templateCache', 'ModalService', ($templateCache, ModalService)
         }
       });
 
-      $scope.editCartItem = ($event) => {
-        $event.preventDefault();
-        $event.stopPropagation();
+      $scope.editCartItem = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         ModalService.showModal({
           template: $templateCache.get('scripts/components/cartItemModal/cartItemModal.html'),
           controller: "cartItemModalController",
